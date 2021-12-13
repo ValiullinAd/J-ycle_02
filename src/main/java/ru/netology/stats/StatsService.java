@@ -13,13 +13,14 @@ public class StatsService {
     }
 
     public int aveSales(int[] mouthMeaning) {
-        int allSum = 0;
+        //int allSum = 0;
         int averageSale = 0;
-        for (int sale : mouthMeaning) {
+        //for (int sale : mouthMeaning) {
+        for (int i : mouthMeaning) {
             //Плюсуем все ячейки
-            allSum += sale;
+            //allSum += sale;
             //Средняя между суммой сложенных ячеек и кол-ва ячеек
-            averageSale = allSum / mouthMeaning.length;
+            averageSale = arrayMouth(mouthMeaning) / mouthMeaning.length;
         }
         return averageSale;
     }
@@ -58,17 +59,19 @@ public class StatsService {
     }
     public int findSalesLowAve(int[] mouthMeaning){
 
-        int allSum = 0;
-        int averageSale = 0;
         int mouth = 0;
-        for (int sale : mouthMeaning) {
+        int averageSale = aveSales(mouthMeaning);
+        /*int allSum = 0;
+        int averageSale = 0;
+       for (int sale : mouthMeaning) {
             //Плюсуем все ячейки
             allSum += sale;
             //Средняя между суммой сложенных ячеек и кол-ва ячеек
             averageSale = allSum / mouthMeaning.length;
-        }
+        }*/
         for (int sale : mouthMeaning) {
             //Если "Среднее" включительно то нужен знак = в сравнении
+            //if (sale <= averageSale) {
             if (sale <= averageSale) {
                 mouth++;
             }
@@ -77,18 +80,12 @@ public class StatsService {
     }
     public int findSalesHighAve(int[] mouthMeaning){
 
-        int allSum = 0;
-        int averageSale = 0;
         int mouth = 0;
-        for (int sale : mouthMeaning) {
-            //Плюсуем все ячейки
-            allSum += sale;
-            //Средняя между суммой сложенных ячеек и кол-ва ячеек
-            averageSale = allSum / mouthMeaning.length;
-        }
+        //int averageSale = aveSales(mouthMeaning);
         for (int sale : mouthMeaning) {
             //Если "Среднее" не включительно то достаточно "<" или ">"
-            if (sale > averageSale) {
+            //if (sale > averageSale) {
+            if (sale > aveSales(mouthMeaning)) {
                 mouth++;
             }
         }
